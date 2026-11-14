@@ -9,7 +9,7 @@ Mastering Java application monitoring and optimization is key to building effici
 In this talk, you’ll gain hands-on skills to monitor, diagnose, and optimize your Java applications with confidence using OpenJDK's built-in tools.
 
 ### Examples
-Explore the getting-started and other-cases directories, where you'll find basic and advanced examples.
+Explore the `getting-started` and `other-cases` directories, where you'll find basic and advanced examples.
 
 # Español
 ## Descifrando los secretos de la JVM: Análisis y optimización de aplicaciones Java
