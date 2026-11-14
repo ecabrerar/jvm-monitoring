@@ -1,0 +1,25 @@
+#1- Listar procesos java
+jcmd
+
+#2-  Listar cada comando de diagnóstico que soporta esta jvm
+jcmd <pid> help
+
+#3-  Ver tiempo que lleva ejecutandose
+jcmd <pid> VM.uptime
+
+#4- Ver comando de arranque y flags de la JVM
+jcmd <pid> VM.command_line
+jcmd <pid> VM.flags
+
+#5- Thread dump — (Revisar el hilo principal)
+jcmd <pid> Thread.print -l
+
+#6 - Revisión del Heap: GC, heap usage, generation sizes
+jcmd <pid> GC.heap_info
+
+#7 Clases principales
+jcmd <pid> GC.class_histogram | head -15
+
+#8 Comparar salida del serial GC
+run with java -XX:+UseSerialGC <MainApp>
+

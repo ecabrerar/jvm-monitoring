@@ -1,0 +1,21 @@
+#Extras
+# Revisar si hay un deadlock
+
+jcmd <pid> Thread.print -l | less
+
+# Revisar memory leak
+# Heap en el tiempo:
+
+jcmd <pid> GC.heap_info
+
+# Repetir comando anterior luego de 30 segundos
+
+jcmd <pid> GC.heap_info
+
+# 2. Histograma: las entradas String dominan y crecen entre snapshots
+jcmd <pid> GC.class_histogram > h1.txt
+
+# Repetir comando anterior luego de 30 segundos
+
+jcmd <pid> GC.class_histogram > h2.txt
+diff h1.txt h2.txt

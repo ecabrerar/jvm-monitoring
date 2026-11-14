@@ -1,0 +1,22 @@
+# Extras
+
+# Deadlock
+
+jcmd <pid> JFR.start duration=30s filename=deadlock.jfr
+
+jfr view jdk.JavaMonitorEnter deadlock.jfr
+
+jfr view contention-by-class deadlock.jfr
+
+
+# Memory Leak
+
+java -XX:StartFlightRecording=duration=60s,filename=memoryleak.jfr MemoryLeakDemo.java
+java -XX:StartFlightRecording:memory-leaks=gc-roots,filename=memoryleak.jfr MemoryLeakDemo.java
+jfr view memory-leaks-by-class memoryleak.jfr
+
+
+# Complementos útiles del mismo comando
+jfr view allocation-by-class memoryleak.jfr    # quién asigna más
+jfr view allocation-by-site  memoryleak.jfr
+jfr view gc memoryleak.jfr                      # comportamiento del GC
