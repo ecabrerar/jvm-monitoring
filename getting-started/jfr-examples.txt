@@ -1,0 +1,13 @@
+# Iniciar una grabación de 60 segundos con Flight Recorder
+jcmd <pid> JFR.start duration=60s filename=simple-app.jfr
+
+jcmd <pid> JFR.check
+# ...after ~30s...
+jfr summary simple-app.jfr | less
+jfr print simple-app.jfr | less
+jfr print --json simple-app.jfr | less
+jfr print --events <eventName> simple-app.jfr | less
+
+jfr view hot-methods simple-app.jfr
+
+
